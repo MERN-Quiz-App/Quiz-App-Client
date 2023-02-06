@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import ReturnToTop from "../UI/ReturnToTop";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import "../styles/CommonStyles.css";
+import React, { useState } from "react"
+import ReturnToTop from "../UI/ReturnToTop"
+import { Link, useParams, useNavigate } from "react-router-dom"
+import "../styles/CommonStyles.css"
 
 const QuestionsForm = ({ questions, quizzes }) => {
-  const { quizId } = useParams();
+  const { quizId } = useParams()
   // const [quizId, setQuizId] = useState('')
-  const [question, setQuestion] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState("");
-  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
-  const [incorrectAns1, setIncorrectAns1] = useState("");
-  const [incorrectAns2, setIncorrectAns2] = useState("");
-  const [incorrectAns3, setIncorrectAns3] = useState("");
-  const [lastQuestion, setLastQuestion] = useState(false);
+  const [question, setQuestion] = useState("")
+  const [correctAnswer, setCorrectAnswer] = useState("")
+  const [incorrectAnswers, setIncorrectAnswers] = useState([])
+  const [incorrectAns1, setIncorrectAns1] = useState("")
+  const [incorrectAns2, setIncorrectAns2] = useState("")
+  const [incorrectAns3, setIncorrectAns3] = useState("")
+  const [lastQuestion, setLastQuestion] = useState(false)
 
   const nav = useNavigate();
 
@@ -40,26 +40,26 @@ const QuestionsForm = ({ questions, quizzes }) => {
 
   // Function to put incorrect answers into array and set quizId from URL
   function getParams(e) {
-    e.preventDefault();
+    e.preventDefault()
     setIncorrectAnswers(
       incorrectAnswers.push(incorrectAns1, incorrectAns2, incorrectAns3)
     );
-    addQuestion(quizId, question, correctAnswer, incorrectAnswers);
+    addQuestion(quizId, question, correctAnswer, incorrectAnswers)
     if (lastQuestion) {
       nav('/quizzes')
     } else {
-      alert("Question added successfully!");
+      alert("Question added successfully!")
     }
   }
 
   // Function to reset the state of the form after submitting a question
   function resetForm() {
     setQuestion("");
-    setCorrectAnswer("");
-    setIncorrectAnswers([]);
-    setIncorrectAns1("");
-    setIncorrectAns2("");
-    setIncorrectAns3("");
+    setCorrectAnswer("")
+    setIncorrectAnswers([])
+    setIncorrectAns1("")
+    setIncorrectAns2("")
+    setIncorrectAns3("")
   }
 
   // Function to post a new question to the DB
@@ -172,7 +172,7 @@ const QuestionsForm = ({ questions, quizzes }) => {
         </button>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default QuestionsForm;
+export default QuestionsForm

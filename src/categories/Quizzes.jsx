@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import RandomQuiz from "./RandomQuiz";
-import ShowQuiz from "./ShowQuiz";
-import ReturnToTop from "../UI/ReturnToTop";
-import "../styles/CommonStyles.css";
+import React, { useEffect, useState } from "react"
+import RandomQuiz from "./RandomQuiz"
+import ShowQuiz from "./ShowQuiz"
+import ReturnToTop from "../UI/ReturnToTop"
+import "../styles/CommonStyles.css"
 
 const Quizzes = ({ quizzes, setQuizzes, setQuestions }) => {
   useEffect(() => {

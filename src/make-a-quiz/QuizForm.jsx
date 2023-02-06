@@ -1,6 +1,6 @@
 import React, { useState, Image } from 'react'
 import { Link, redirect, useNavigate } from 'react-router-dom'
-import "../styles/CommonStyles.css";
+import "../styles/CommonStyles.css"
 
 const QuizForm = ({ quizzes, categories, setQuizzes }) => {
   const [category, setCategory] = useState('')
@@ -15,15 +15,15 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
     'src/assets/question-mark.png', 'src/assets/test.png', 'src/assets/tv.png'
   ]
 
-  const nav = useNavigate();
+  const nav = useNavigate()
 
   // Function to check if category entered and if so call addQuiz function
   async function submitQuiz(e) {
-    e.preventDefault();
+    e.preventDefault()
     if (!category) {
-      alert("You need to select a category");
+      alert("You need to select a category")
     } else {
-      addQuiz(category, title, author, questions, image);
+      addQuiz(category, title, author, questions, image)
     }
   }
 
@@ -36,7 +36,7 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
       author: author,
       questions: questions,
       image: image,
-    };
+    }
     // Post new quiz to the API
     const createdQuiz = await fetch('https://quiz-app-server-production-09e8.up.railway.app/quizzes', {
       method: 'POST',
@@ -49,10 +49,10 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
     console.log(newQuiz)
     const data = await createdQuiz.json()
     // Update quizzes state with the new quiz
-    const updatedQuizzes = quizzes.push(data);
-    setQuizzes(updatedQuizzes);
+    const updatedQuizzes = quizzes.push(data)
+    setQuizzes(updatedQuizzes)
     // Navigate to add questions to the new quiz
-    navToNewQuiz(data);
+    navToNewQuiz(data)
     // const findTitle = data.title
     // const quiz = quizzes.find(quiz => quiz.title === findTitle)
     // console.log(quizzes)
@@ -61,14 +61,14 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
     // console.log(convertedTitle)
     // nav(`/add-questions/${convertedTitle}`)
     // console.log(convertedTitle)
-  };
+  }
 
   // // Uses the new quiz data to get the ID of the new quiz from the DB
   function navToNewQuiz(data) {
     // Find the quiz in the DB where the title matches the quiz just created
-    const quiz = quizzes.find((quiz) => quiz.title === data.title);
+    const quiz = quizzes.find((quiz) => quiz.title === data.title)
     // Use the ID of that quiz to navigate to the correct Add Questions page
-    nav(`/add-questions/${quiz._id}`);
+    nav(`/add-questions/${quiz._id}`)
   }
 
   return (
@@ -134,7 +134,7 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default QuizForm;
+export default QuizForm

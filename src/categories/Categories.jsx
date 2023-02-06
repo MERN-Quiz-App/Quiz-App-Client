@@ -15,6 +15,7 @@ const Categories = ({ categories }) => {
           <Link to={`/categories/${category.name}`} class='d-flex justify-content-center text-dark fw-bold'  >{category.name}</Link>
         </p>
       ))}
+      <br/><br/>
       <RandomCat categories={categories}/>      
       <ReturnToTop />
       
