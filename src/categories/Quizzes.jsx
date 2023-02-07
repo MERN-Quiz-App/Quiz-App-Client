@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RandomQuiz from "./RandomQuiz";
 import ShowQuiz from "./ShowQuiz";
-import ReturnToTop from "../UI/ReturnToTop";
+import ReturnToTop from "../ui/ReturnToTop";
 import "../styles/CommonStyles.css";
 
 const Quizzes = ({ quizzes, setQuizzes, questions }) => {

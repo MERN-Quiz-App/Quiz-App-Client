@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import ReturnToTop from '../UI/ReturnToTop'
+import ReturnToTop from '../ui/ReturnToTop'
 import RandomCat from './RandomCat'
 import '../styles/CommonStyles.css'
 
