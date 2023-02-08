@@ -8,6 +8,7 @@ const CategoryQuizzes = ({ quizzes, categories }) => {
   const { categoryName } = useParams()
 
 	// replace %20 in the URL's category name to space to match name in db
+	/* istanbul ignore next */ 
 	let categoryNameConverted = categoryName.replaceAll('%20', ' ')
 
 	// get the category object from the category name

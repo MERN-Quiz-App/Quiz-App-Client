@@ -108,6 +108,7 @@ const EditQuizzes = ({ quizzes }) => {
                 key={index}
                 className="card m-3"
                 style={{ width: "15rem" }}
+                data-testid='edit-quiz'
               >
                 <ShowQuiz quiz={quiz} />
                 <ul>

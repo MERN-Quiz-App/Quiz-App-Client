@@ -10,10 +10,10 @@ describe('Categories component', () => {
 	
 	// Provide fake quizzes to use in tests
 	const quizzes = [
-			{ category: 'Science', title: 'Random Facts', author: 'Quiz App Staff', questions: [], image: '/question-mark.png' },
-			{ category: 'TV & Movies', title: 'Movie Trivia', author: 'Quiz App Staff', questions: [], image: '/movies.png' },
-			{ category: 'Geography', title: 'Geography Master', author: 'Quiz App Staff', questions: [], image: '/geography.png' }
-    ]
+		{ category: 'Science', title: 'Random Facts', author: 'Quiz App Staff', questions: [], image: '/question-mark.png' },
+		{ category: 'TV & Movies', title: 'Movie Trivia', author: 'Quiz App Staff', questions: [], image: '/movies.png' },
+		{ category: 'Geography', title: 'Geography Master', author: 'Quiz App Staff', questions: [], image: '/geography.png' }
+	]
 
 	// Setup
 	beforeEach(function () {

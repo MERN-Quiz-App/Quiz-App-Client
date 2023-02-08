@@ -6,6 +6,7 @@ import { expect } from 'vitest'
 import App from "./App"
 import RandomCat from './categories/RandomCat'
 import RandomQuiz from './categories/RandomQuiz'
+import TakeAQuiz from './take-a-quiz/TakeAQuiz'
 
 describe("App Component", () => {
     let container
@@ -33,56 +34,56 @@ describe("App Component", () => {
      expect(container.querySelector("h1")).toBeDefined()
      expect(container.querySelector("h1")).toHaveTextContent('All Quizzes')   
  
-   })
-   // Categories
-   it("Shows Categories", async () => {
-     await userEvent.click(screen.getByText('Categories'))
-     expect(container.querySelector("h1")).toBeDefined()
-     expect(container.querySelector("h1")).toHaveTextContent('Categories')
- 
-   })   
-   // Make a quiz
-   it("Shows Make a quiz", async () => {
-     await userEvent.click(screen.getByText('Make a quiz'))
-     expect(container.querySelector("h1")).toBeDefined()
-     expect(container.querySelector("h1")).toHaveTextContent('Make a new Quiz')             
-     const labels = container.querySelectorAll("label")
-     expect(labels[0]).toHaveTextContent('Category:') 
-     expect(labels[1]).toHaveTextContent('Quiz name:') 
-     expect(labels[2]).toHaveTextContent('Created by:')
-     const div = container.querySelectorAll("div")
-     expect(div[2]).toHaveTextContent('Choose an image:') 
-     const p = container.querySelectorAll("p")
-     expect(p[0]).toHaveTextContent('Don\'t see a Category that fits your Quiz idea?') 
-     const btn = container.querySelectorAll("button")
-     expect(btn[2]).toHaveTextContent('Next') 
+  })
+  // Categories
+  it("Shows Categories", async () => {
+    await userEvent.click(screen.getByText('Categories'))
+    expect(container.querySelector("h1")).toBeDefined()
+    expect(container.querySelector("h1")).toHaveTextContent('Categories')
 
-   })     
-   // Edit a quiz
-   it("Shows Edit a quiz", async () => {
-     await userEvent.click(screen.getByText('Edit a quiz'))     
-     expect(container.querySelector("h1")).toBeDefined()
-     expect(container.querySelector("h1")).toHaveTextContent('Choose a Quiz to edit or delete')
-     
-   })  
+  })   
+  // Make a quiz
+  it("Shows Make a quiz", async () => {
+    await userEvent.click(screen.getByText('Make a quiz'))
+    expect(container.querySelector("h1")).toBeDefined()
+    expect(container.querySelector("h1")).toHaveTextContent('Make a new Quiz')             
+    const labels = container.querySelectorAll("label")
+    expect(labels[0]).toHaveTextContent('Category:') 
+    expect(labels[1]).toHaveTextContent('Quiz name:') 
+    expect(labels[2]).toHaveTextContent('Created by:')
+    const div = container.querySelectorAll("div")
+    expect(div[2]).toHaveTextContent('Choose an image:') 
+    const p = container.querySelectorAll("p")
+    expect(p[0]).toHaveTextContent('Don\'t see a Category that fits your Quiz idea?') 
+    const btn = container.querySelectorAll("button")
+    expect(btn[2]).toHaveTextContent('Next') 
+
+  })     
+  // Edit a quiz
+  it("Shows Edit a quiz", async () => {
+    await userEvent.click(screen.getByText('Edit a quiz'))     
+    expect(container.querySelector("h1")).toBeDefined()
+    expect(container.querySelector("h1")).toHaveTextContent('Choose a Quiz to edit or delete')
+    expect(container.querySelector('form')).toBeDefined()
+  })
    
-   // Random Category Quiz
-   it("Shows Random Categories", () => {
-    const { container } = render(
-       <BrowserRouter>
-            <RandomCat />  
-       </BrowserRouter>    
-     )
-     expect(container.querySelector("p")).toBeDefined()
-   })    
+  // Random Category Quiz
+  it("Shows Random Categories", () => {
+  const { container } = render(
+      <BrowserRouter>
+          <RandomCat />  
+      </BrowserRouter>    
+    )
+    expect(container.querySelector("p")).toBeDefined()
+  })    
 
-   // Random Quiz
-   it("Shows Random Quiz", () => {
-    const { container } = render(
-       <BrowserRouter>
-            <RandomQuiz />  
-       </BrowserRouter>    
-     )
-     expect(container.querySelector("p")).toBeDefined()          
-   })       
+  // Random Quiz
+  it("Shows Random Quiz", () => {
+  const { container } = render(
+      <BrowserRouter>
+          <RandomQuiz />  
+      </BrowserRouter>    
+    )
+    expect(container.querySelector("p")).toBeDefined()          
+  })       
 })
