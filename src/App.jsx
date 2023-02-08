@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useParams, useNavigate, redirect } from 'react-router-dom'
+import { Routes, Route, useParams, useNavigate, redirect } from 'react-router-dom'
 import Home from './home/Home'
 import NavBar from './home/NavBar'
 import Footer from './home/Footer'
 import Categories from './categories/Categories'
-import Leaderboard from './leaderboard/Leaderboard'
-import LogIn from './login/LogIn'
 import QuizForm from './make-a-quiz/QuizForm'
-import Profile from './profile/Profile'
 import Quizzes from './categories/Quizzes'
 import CategoryQuizzes from './categories/CategoryQuizzes'
 import EditQuizzes from './edit-a-quiz/EditQuizzes'
 import Result from './result/Result'
-// import ShowQuestion from './take-a-quiz/ShowQuestion'
 import TakeAQuiz from './take-a-quiz/TakeAQuiz'
 import QuestionsForm from './make-a-quiz/QuestionsForm'
 import EditQuestions from './edit-a-quiz/EditQuestions'
@@ -128,15 +124,6 @@ const App = () => {
 
     return quiz ? <EditQuestions quiz={quiz} questions={questions} setQuestions={setQuestions} /> : <h4>Loading... </h4>
   }
-  
-  // HOC for QuestionsForm to access quizTitle in the URL
-  // const AddQuestionWrapper = () => {
-  //   const { quizId } = useParams()
-    
-  //   // get quiz ObjectId from quizTitle
-  //   const quiz = quizzes.find(quiz => quiz._id === quizId)
-  //   return quiz ? <QuestionsForm addQuestion={addQuestion} quiz={quiz} questions={questions} quizzes={quizzes}/> : <h4>Loading... </h4>
-  // }
 
   return (
     <>
@@ -151,12 +138,8 @@ const App = () => {
           <Route path='/edit-a-quiz' element={<EditQuizzes quizzes={quizzes} />} />
           <Route path='/edit-a-quiz/:quizId' element={<EditAQuiz categories={categories} />} />
           <Route path='/edit-a-quiz/:quizId/questions' element={<EditQuestionWrapper />} />
-          {/* <Route path='/edit-a-quiz/:quizId/questions' element={<EditQuestions />} /> */}
           <Route path='/add-a-category' element={<CategoryForm categories={categories} setCategories={setCategories} />} />
           <Route path='/add-questions/:quizId' element={<QuestionsForm questions={questions} quizzes={quizzes} setQuestions={setQuestions} />} />
-          <Route path='/leaderboard' element={<Leaderboard />} />
-          <Route path='/log-in' element={<LogIn />} />
-          <Route path='/profile' element={<Profile />} />
           <Route path='/result/:quizId' element={<ResultWrapper />} />
           <Route path='*' element={<h4>Page not found</h4>} />
         </Routes>

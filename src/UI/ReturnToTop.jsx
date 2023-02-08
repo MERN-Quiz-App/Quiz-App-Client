@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const ReturnToTop = () => {
-  const [arrowButton, setArrowButton] = useState(false);
+  const [arrowButton, setArrowButton] = useState(false)
 
   useEffect(() => {
     window.addEventListener('scroll', () => {

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import ShowQuiz from "../categories/ShowQuiz"
-import Modal from "react-bootstrap/Modal"
-import Button from "react-bootstrap/Button"
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import ShowQuiz from '../categories/ShowQuiz'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 
 const EditQuizzes = ({ quizzes }) => {
@@ -13,7 +13,7 @@ const EditQuizzes = ({ quizzes }) => {
 
   const handleConfirmDelete = () => {
     handleDeleteQuiz(selectedQuiz._id)
-    alert("Quiz deleted successfully")
+    alert('Quiz deleted successfully')
     setSelectedQuiz(null)
     refreshPage()
   }
@@ -23,7 +23,7 @@ const EditQuizzes = ({ quizzes }) => {
       const res = await fetch(
         `https://quiz-app-server-production-09e8.up.railway.app/quizzes/${id}`,
         {
-          method: "DELETE",
+          method: 'DELETE',
         }
       )
     } catch (error) {
@@ -35,20 +35,20 @@ const EditQuizzes = ({ quizzes }) => {
     return (
       <Modal
         {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
+        size='lg'
+        aria-labelledby='contained-modal-title-vcenter'
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
+          <Modal.Title id='contained-modal-title-vcenter'>
             Are you sure you want to delete the quiz?
           </Modal.Title>
         </Modal.Header>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleConfirmDelete}>
+          <Button variant='primary' onClick={handleConfirmDelete}>
             Confirm
           </Button>
-          <Button variant="secondary" onClick={props.onHide}>
+          <Button variant='secondary' onClick={props.onHide}>
             Cancel
           </Button>
         </Modal.Footer>
@@ -62,7 +62,7 @@ const EditQuizzes = ({ quizzes }) => {
   }
 
   const handleConfirmEdit = () => {
-    console.log("calling edit quiz :", selectedQuizEdit._id)
+    console.log('calling edit quiz :', selectedQuizEdit._id)
     nav(`/edit-a-quiz/${selectedQuizEdit._id}`)
   }
 
@@ -70,20 +70,20 @@ const EditQuizzes = ({ quizzes }) => {
     return (
       <Modal
         {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
+        size='lg'
+        aria-labelledby='contained-modal-title-vcenter'
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
+          <Modal.Title id='contained-modal-title-vcenter'>
             Are you sure you want to edit the quiz?
           </Modal.Title>
         </Modal.Header>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleConfirmEdit}>
+          <Button variant='primary' onClick={handleConfirmEdit}>
             Confirm
           </Button>
-          <Button variant="secondary" onClick={props.onHide}>
+          <Button variant='secondary' onClick={props.onHide}>
             Cancel
           </Button>
         </Modal.Footer>
@@ -98,16 +98,16 @@ const EditQuizzes = ({ quizzes }) => {
 
   return (
     <>
-      <div className="main-body flex-wrap">
+      <div className='main-body flex-wrap'>
         <h1>Choose a Quiz to edit or delete</h1>
-        <ul className="d-flex justify-content-center flex-wrap ">
+        <ul className='d-flex justify-content-center flex-wrap '>
           {quizzes.length === 0
-            ? "Loading..."
+            ? 'Loading...'
             : quizzes.map((quiz, index) => (
               <div
                 key={index}
-                className="card m-3"
-                style={{ width: "15rem" }}
+                className='card m-3'
+                style={{ width: '15rem' }}
               >
                 <ShowQuiz quiz={quiz} />
                 <ul>

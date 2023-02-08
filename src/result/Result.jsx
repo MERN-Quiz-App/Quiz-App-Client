@@ -9,12 +9,12 @@ function HighScorePopup(props) {
   return (
     <Modal
       {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
+      size='lg'
+      aria-labelledby='contained-modal-title-vcenter'
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title id='contained-modal-title-vcenter'>
           You got every answer correct!
         </Modal.Title>
       </Modal.Header>
@@ -67,15 +67,15 @@ const Result = ({ answers, quiz }) => {
         {quiz.questions.map((question, index) => 
         (
           <>
-            <div className="card" style={{ width: '18rem' }} key={index}>
-            <div className="card-header">
+            <div className='card' style={{ width: '18rem' }} key={index}>
+            <div className='card-header'>
               {question.question}
             </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item bg-success">{ question.correctAnswer }</li>
+            <ul className='list-group list-group-flush'>
+              <li className='list-group-item bg-success'>{ question.correctAnswer }</li>
               {question.incorrectAnswers.map((incorrectAnswer, index2) => 
-                incorrectAnswer === answers[index] ? <li className="list-group-item bg-danger" key={index2}> {incorrectAnswer} </li> :
-                <li className="list-group-item" key={index2}>{ incorrectAnswer }</li>
+                incorrectAnswer === answers[index] ? <li className='list-group-item bg-danger' key={index2}> {incorrectAnswer} </li> :
+                <li className='list-group-item' key={index2}>{ incorrectAnswer }</li>
               )}
             </ul>
             </div>
@@ -83,7 +83,7 @@ const Result = ({ answers, quiz }) => {
           </>
         ))}
         <br />
-        <button className="d-flex justify-content-between fw-normal">
+        <button className='d-flex justify-content-between fw-normal'>
             <Link to={'/quizzes'}>Take another quiz</Link>
         </button>
         <br />

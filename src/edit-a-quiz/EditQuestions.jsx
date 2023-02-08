@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import "../styles/CommonStyles.css"
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../styles/CommonStyles.css'
 
 const EditQuestions = ({ quiz, questions, setQuestions }) => {
-  const [index, setIndex] = useState(0);
-  const nav = useNavigate();
+  const [index, setIndex] = useState(0)
+  const nav = useNavigate()
 
   // const questionObject = quiz.questions[index]
   
@@ -105,12 +105,12 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
     }
     // Post new question to API
     await fetch(
-      "https://quiz-app-server-production-09e8.up.railway.app/questions",
+      'https://quiz-app-server-production-09e8.up.railway.app/questions',
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(newQuestion),
       }
@@ -120,7 +120,7 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
     // const updatedQuestions = questions.push(data)
     // setQuestions(updatedQuestions)
     // console.log(updatedQuestions)
-  };
+  }
 
   // handle add a new question
   function handleAddQuestion(event) {
@@ -138,7 +138,7 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
     } else {
       try {
         await fetch(`https://quiz-app-server-production-09e8.up.railway.app/questions/${questionObject._id}`, {
-            method: "DELETE"
+            method: 'DELETE'
         })
         setIndex(index+1)
         setConfirm(false)
@@ -166,19 +166,19 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
         <button onClick={ () => setConfirm(false) }> Cancel </button>
         <br />
       </>
-    );
-  };
+    )
+  }
 
   // add new question after typing all the info
   const handleConfirmAdd = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const newQuestion = {
       quizId: quiz._id,
       question: question,
       correctAnswer: correctAnswer,
       incorrectAnswers: [incorrectAnswer1, incorrectAnswer2, incorrectAnswer3],
-    };
+    }
     // Post new question to API
 
     const res = await fetch('https://quiz-app-server-production-09e8.up.railway.app/questions', {
@@ -199,32 +199,32 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
 
   return (
     <>
-      <div className="main-body flex-wrap" style={{ height: "100vh" }}>
+      <div className='main-body flex-wrap' style={{ height: '100vh' }}>
         <h2>Edit {quiz.title}</h2>
         <form
-          className="container d-flex flex-column flex-wrap"
+          className='container d-flex flex-column flex-wrap'
           key={index}
-          style={{ width: "400px" }}
+          style={{ width: '400px' }}
         >
-          <div className="question-form d-flex flex-column">
+          <div className='question-form d-flex flex-column'>
             <label> Question </label>
             <input
-              type="text"
+              type='text'
               defaultValue={questionObject.question}
               // value={questionObject.question}
               onChange={(e) => setQuestion(e.target.value)}
             />
           </div>
-          <div className="correct-answer-form d-flex flex-column">
+          <div className='correct-answer-form d-flex flex-column'>
             <label>Correct answer:</label>
             <input
-              type="text"
+              type='text'
               defaultValue={questionObject.correctAnswer}
               // value={questionObject.correctAnswer}
               onChange={(e) => setCorrectAnswer(e.target.value)}
             />
           </div>
-          <div className="incorrect-answers-form d-flex flex-column">
+          <div className='incorrect-answers-form d-flex flex-column'>
             <label>Incorrect answers:</label>
             <input
               type='text'
@@ -248,7 +248,7 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
         </form>
         { confirm && confirmForm() }  
         <br/> 
-        <div className="d-flex justify-content-between">
+        <div className='d-flex justify-content-between'>
         { newQuestion && <button onClick={ handleConfirmAdd }> Save Question </button> } 
         { (!confirm && !newQuestion) && <button onClick={ handleClickDelete }> Delete this question </button> }  
         { (index === quiz.questions.length-1 && !confirm) &&  <button onClick={ handleAddQuestion }> Add a new question </button>}
@@ -256,7 +256,7 @@ const EditQuestions = ({ quiz, questions, setQuestions }) => {
         <br/>
         { index === quiz.questions.length-1 && <button onClick={handleSubmit}> Submit </button> }
         <br/>
-        <div className="d-flex justify-content-between">
+        <div className='d-flex justify-content-between'>
         <button onClick={() => nav('/edit-a-quiz')}>Quit</button> 
         { (index < quiz.questions.length-1 && !confirm) && <button onClick={ handleClickSaveNext }> Save & Next </button> }
         { (index === quiz.questions.length-1 && !confirm) && <button onClick={ handleClickSave }> Save </button> }

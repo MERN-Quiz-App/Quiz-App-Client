@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import '../styles/CommonStyles.css'
 
 const QuestionsForm = ({ questions, setQuestions }) => {
