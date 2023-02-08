@@ -4,10 +4,7 @@ import Home from './home/Home'
 import NavBar from './home/NavBar'
 import Footer from './home/Footer'
 import Categories from './categories/Categories'
-import Leaderboard from './leaderboard/Leaderboard'
-import LogIn from './login/LogIn'
 import QuizForm from './make-a-quiz/QuizForm'
-import Profile from './profile/Profile'
 import Quizzes from './categories/Quizzes'
 import CategoryQuizzes from './categories/CategoryQuizzes'
 import EditQuizzes from './edit-a-quiz/EditQuizzes'
@@ -154,9 +151,6 @@ const App = () => {
           {/* <Route path='/edit-a-quiz/:quizId/questions' element={<EditQuestions />} /> */}
           <Route path='/add-a-category' element={<CategoryForm categories={categories} setCategories={setCategories} />} />
           <Route path='/add-questions/:quizId' element={<QuestionsForm questions={questions} quizzes={quizzes} setQuestions={setQuestions} />} />
-          <Route path='/leaderboard' element={<Leaderboard />} />
-          <Route path='/log-in' element={<LogIn />} />
-          <Route path='/profile' element={<Profile />} />
           <Route path='/result/:quizId' element={<ResultWrapper />} />
           <Route path='*' element={<h4>Page not found</h4>} />
         </Routes>

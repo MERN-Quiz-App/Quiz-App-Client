@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const RandomQuiz = ({ quizzes }) => {
   // function to get a random quiz from the quizzes array
@@ -14,27 +14,27 @@ const RandomQuiz = ({ quizzes }) => {
 
   return (
     <>
-      <div className=" flex-wrap">
+      <div className=' flex-wrap'>
         {quiz ? (
           <>
-            <p className="d-flex justify-content-center text-dark fw-bold">
+            <p className='d-flex justify-content-center text-dark fw-bold'>
               Can't choose?
             </p>
             <button>
               <Link
                 to={`/quizzes/${quiz._id}`}
-                className="d-flex justify-content-center fw-normal"
+                className='d-flex justify-content-center fw-normal'
               >
                 Random Quiz
               </Link>
             </button>
           </>
         ) : (
-          ""
+          ''
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default RandomQuiz;
+export default RandomQuiz

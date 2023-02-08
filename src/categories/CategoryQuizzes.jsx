@@ -22,7 +22,7 @@ const CategoryQuizzes = ({ quizzes, categories }) => {
 				<h1>Quizzes of {categoryNameConverted} category</h1>
 				<ul className='d-flex justify-content-center flex-wrap '>
 					{quizzesByCat.map((quizByCat, index) => (
-						<div key={index} className="card m-3" style={{ width: "15rem" }}>
+						<div key={index} className='card m-3' style={{ width: '15rem' }}>
 							<ShowQuiz quiz={quizByCat} />
 						</div>
 					))}

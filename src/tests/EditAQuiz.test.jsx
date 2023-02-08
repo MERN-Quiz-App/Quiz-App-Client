@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
-import { render, screen } from "@testing-library/react"
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from 'react-router-dom'
 import { expect } from 'vitest'
 import EditQuizzes, { DeleteConfirmation } from '../edit-a-quiz/EditQuizzes'
 
@@ -21,7 +21,7 @@ describe('Edit a Quiz component', () => {
       const res = await fetch(
         `https://quiz-app-server-production-09e8.up.railway.app/quizzes/${id}`,
         {
-          method: "DELETE",
+          method: 'DELETE',
         }
       )
     } catch (error) {
@@ -31,7 +31,7 @@ describe('Edit a Quiz component', () => {
 
 	const handleConfirmDelete = () => {
     handleDeleteQuiz(selectedQuiz._id)
-    alert("Quiz deleted successfully")
+    alert('Quiz deleted successfully')
     setSelectedQuiz(null)
     refreshPage()
   }
@@ -41,7 +41,7 @@ describe('Edit a Quiz component', () => {
   }
 
 	const handleConfirmEdit = () => {
-    console.log("calling edit quiz :", selectedQuizEdit._id)
+    console.log('calling edit quiz :', selectedQuizEdit._id)
     nav(`/edit-a-quiz/${selectedQuizEdit._id}`)
   }
 

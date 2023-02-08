@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import "../styles/CommonStyles.css";
+import '../styles/CommonStyles.css'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
 const TakeAQuiz = ({ quiz, onChange }) => {
@@ -78,21 +78,21 @@ const TakeAQuiz = ({ quiz, onChange }) => {
 
     //this function shuffles elements in an array
     function shuffle(array) {
-      let currentIndex = array.length, randomIndex;
+      let currentIndex = array.length, randomIndex
 
       // While there remain elements to shuffle.
       while (currentIndex != 0) {
 
         // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex--
 
         // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
-          array[randomIndex], array[currentIndex]];
+          array[randomIndex], array[currentIndex]]
       }
 
-      return array;
+      return array
     }
 
     // call shuffle on answersArray
@@ -102,11 +102,11 @@ const TakeAQuiz = ({ quiz, onChange }) => {
 
   return (
     <>
-      <div className="main-body flex-wrap" style={{ height: "100vh" }}>
-        <h1 className="justify-content-center text-dark fw-bold"
-          style={{ width: "15rem", height: "5rem" }}>Timer: {timeLeft}</h1>
-        <h1 className="justify-content-center text-dark fw-bold">{quiz.title}</h1>
-        <h4 className="d-flex justify-content-center">{question.question}</h4>
+      <div className='main-body flex-wrap' style={{ height: '100vh' }}>
+        <h1 className='justify-content-center text-dark fw-bold'
+          style={{ width: '15rem', height: '5rem' }}>Timer: {timeLeft}</h1>
+        <h1 className='justify-content-center text-dark fw-bold'>{quiz.title}</h1>
+        <h4 className='d-flex justify-content-center'>{question.question}</h4>
 
         <div>
           {seededAnswers.map((seededAnswer, index) => (
@@ -123,7 +123,7 @@ const TakeAQuiz = ({ quiz, onChange }) => {
           ))}
         </div>
         <br/>
-        <div className="d-flex justify-content-between">
+        <div className='d-flex justify-content-between'>
         {index < quiz.questions.length - 1 ?
           <button onClick={handleClickNext}> Next </button> :
           <button onClick={handleSubmit}> Submit </button>

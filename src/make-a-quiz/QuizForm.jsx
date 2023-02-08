@@ -1,6 +1,6 @@
 import React, { useState, Image } from 'react'
 import { Link, redirect, useNavigate } from 'react-router-dom'
-import "../styles/CommonStyles.css"
+import '../styles/CommonStyles.css'
 
 const QuizForm = ({ quizzes, categories, setQuizzes }) => {
   const [category, setCategory] = useState('')
@@ -21,7 +21,7 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
   async function submitQuiz(e) {
     e.preventDefault()
     if (!category) {
-      alert("You need to select a category")
+      alert('You need to select a category')
     } else {
       addQuiz(category, title, author, questions, image)
     }
@@ -81,10 +81,10 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
 
   return (
     <>
-      <div className="main-body flex-wrap" style={{ height: "100vh" }}>        
+      <div className='main-body flex-wrap' style={{ height: '100vh' }}>        
         <form onSubmit={submitQuiz}>
-        <h1 className="d-flex justify-content-center">Make a new Quiz</h1>
-          <div className="category-dropdown-form d-flex flex-column">       
+        <h1 className='d-flex justify-content-center'>Make a new Quiz</h1>
+          <div className='category-dropdown-form d-flex flex-column'>       
             <label>Category:</label>
             <select onChange={(e) => setCategory(e.target.value)}>
               <option>Select...</option>
@@ -93,18 +93,18 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
               ))}
             </select>
           </div>
-          <div className="quiz-name-form d-flex flex-column">
+          <div className='quiz-name-form d-flex flex-column'>
             <label>Quiz name:</label>
             <input
-              type="text"
+              type='text'
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="author-form d-flex flex-column">
+          <div className='author-form d-flex flex-column'>
             <label>Created by:</label>
             <input
-              type="text"
+              type='text'
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
             />
@@ -128,12 +128,12 @@ const QuizForm = ({ quizzes, categories, setQuizzes }) => {
           <br />
           <p>Don't see a Category that fits your Quiz idea?
             <br/>
-          <Link to={"/add-a-category"}>Add a new Category</Link>
+          <Link to={'/add-a-category'}>Add a new Category</Link>
           </p>
           <br />
-          <div className="d-flex justify-content-between">
+          <div className='d-flex justify-content-between'>
             <button >
-              <Link to={"/"} className="fw-normal">
+              <Link to={'/'} className='fw-normal'>
                 Quit
               </Link>
             </button>

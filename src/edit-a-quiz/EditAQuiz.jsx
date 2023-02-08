@@ -1,6 +1,6 @@
 import React, { useState, Image, useEffect } from 'react'
 import { Link, redirect, useNavigate, useParams } from 'react-router-dom'
-import "../styles/CommonStyles.css";
+import '../styles/CommonStyles.css';
 
 const EditAQuiz = ({ categories }) => {
   const [quiz, setQuiz] = useState('')
@@ -73,10 +73,10 @@ const EditAQuiz = ({ categories }) => {
   return (
     quiz ? 
       <>
-        <div className="main-body flex-wrap" style={{ height: "100vh" }}>          
+        <div className='main-body flex-wrap' style={{ height: '100vh' }}>          
           <form onSubmit={submitQuiz}>
           <h1>Edit quiz</h1>
-            <div className="category-dropdown-form d-flex flex-column">       
+            <div className='category-dropdown-form d-flex flex-column'>       
               <label>Category:</label>
               <select onChange={(e) => setCategory(e.target.value)} defaultValue={quiz.category.name}>
                 <option>Select...</option>
@@ -85,18 +85,18 @@ const EditAQuiz = ({ categories }) => {
                 ))}
               </select>
             </div>
-            <div className="quiz-name-form d-flex flex-column">
+            <div className='quiz-name-form d-flex flex-column'>
               <label>Quiz name:</label>
               <input
-                type="text"
+                type='text'
                 defaultValue={quiz.title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div className="author-form d-flex flex-column">
+            <div className='author-form d-flex flex-column'>
               <label>Created by:</label>
               <input
-                type="text"
+                type='text'
                 defaultValue={quiz.author}
                 onChange={(e) => setAuthor(e.target.value)}
               />
@@ -120,17 +120,17 @@ const EditAQuiz = ({ categories }) => {
             <br />
             <p>Don't see a Category that fits your Quiz idea?
               <br/>
-            <Link to={"/add-a-category"}>Add a new Category</Link>
+            <Link to={'/add-a-category'}>Add a new Category</Link>
             </p>
             <br />
-            <div className="d-flex justify-content-between">
+            <div className='d-flex justify-content-between'>
               <button>
-                <Link to="/quizzes" className="fw-normal">
+                <Link to='/quizzes' className='fw-normal'>
                   Quit
                 </Link>
               </button>
-              <button  className="fw-normal" type='submit'>Save changes & Exit</button>
-              <button onClick={handleClickQuestions} className="fw-normal" >Edit questions</button>
+              <button  className='fw-normal' type='submit'>Save changes & Exit</button>
+              <button onClick={handleClickQuestions} className='fw-normal' >Edit questions</button>
             </div>
           </form>
         </div>
